@@ -1,0 +1,23 @@
+{
+  "name": "lobcard",
+  "homepage": "https://github.com/Adamhedge/lobcard",
+  "authors": [
+    "Adamhedge <adamhedge@gmail.com>"
+  ],
+  "description": "The biggest innovation to postcards since the postcard was invented.",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "braintree-web": "~2.15.4",
+    "angular": "~1.4.7",
+    "angular-route": "~1.4.7"
+  }
+}
