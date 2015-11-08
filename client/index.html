@@ -4,7 +4,7 @@
     <meta name="viewport" content="initial-scale=1">
     <meta charset="utf-8" />
     <title>SnapCard</title>
-    <script src= "./bower_components/braintree-web/dist/braintree.js"></script>
+    <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
     <script src= "http://code.jquery.com/jquery-2.1.4.min.js"></script> 
   </head>
   <body>
@@ -19,21 +19,33 @@
     </div>
 
     <form action="/your/server/endpoint" method="post">
-      <div id="dropin-container"></div>
+      <div id="payment-form"></div>
+      <input type="submit" value="Pay $1.25">
     </form>
 
     <script>
-      var token;
-      
+      // this handles to form submission
       $.get( "/client_token", function( data ) {
-        token = data;
-        console.dir(data);
-        // alert( "Load was performed. with " + data );
+        var token = data;
+        console.dir("got a token!");
+        braintree.setup(token, 'dropin', {
+          container: 'payment-form',
+          singleUse: true,
+          amount: 1.25,
+          currency: 'USD',
+          onPaymentMethodReceived: function (obj) {
+            $.ajax({
+              type: "POST",
+              url: '/checkout',
+              data: obj,
+              success: function() {
+                console.log("payment sent");
+              }
+            });
+          }
+        });
       });
 
-      // braintree.setup('your-client-token', 'dropin', {
-      //   container: 'dropin-container'
-      // });
     </script>
 
   </body>
