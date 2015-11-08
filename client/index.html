@@ -4,6 +4,8 @@
     <meta name="viewport" content="initial-scale=1">
     <meta charset="utf-8" />
     <title>SnapCard</title>
+    <script src= "./bower_components/braintree-web/dist/braintree.js"></script>
+    <script src= "http://code.jquery.com/jquery-2.1.4.min.js"></script> 
   </head>
   <body>
     <div class="container">
@@ -15,5 +17,24 @@
       <script src="controllers/app.js"></script>
       <script src="app.js"></script>
     </div>
+
+    <form action="/your/server/endpoint" method="post">
+      <div id="dropin-container"></div>
+    </form>
+
+    <script>
+      var token;
+      
+      $.get( "/client_token", function( data ) {
+        token = data;
+        console.dir(data);
+        // alert( "Load was performed. with " + data );
+      });
+
+      // braintree.setup('your-client-token', 'dropin', {
+      //   container: 'dropin-container'
+      // });
+    </script>
+
   </body>
 </html>
