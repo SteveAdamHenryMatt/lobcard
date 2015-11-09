@@ -6,4 +6,4 @@ build/
 dist/
 .DS_Store
 temp/*.png
-postcards/*.png
+postcards/*.jpg
