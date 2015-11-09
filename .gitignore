@@ -5,3 +5,6 @@ client/lib
 build/
 dist/
 .DS_Store
+temp/*.png
+temp/*.jpg
+postcards/*.jpg
