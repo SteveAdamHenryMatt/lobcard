@@ -1,6 +1,7 @@
 angular.module('snapCard', [
   'ngRoute',
-  'snapCard.app'
+  'snapCard.app',
+  'snapCard.factories'
 ])
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider

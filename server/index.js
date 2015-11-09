@@ -6,10 +6,7 @@ var path = require('path');
 var cardRouter = require('./cardRouter');
 
 var gateway = braintree.connect({
-  environment: braintree.Environment.Sandbox,
-  merchantId: '9frnzdybn5t2r6zv',
-  publicKey: 'ctpc3f39h3pxp7r6',
-  privateKey: '53d7230c78689289dd1c2da86c201b42'
+  environment: braintree.Environment.Sandbox
 });
 
 app.use(bodyParser.json({limit: '50mb'}));
@@ -20,6 +17,7 @@ app.get("/client_token", function (req, res) {
     res.send(response.clientToken);
   });
 });
+var port = process.env.PORT || 3000;
 
 app.post("/checkout", function (req, res) {
   var nonce = req.body.nonce;
@@ -55,6 +53,8 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 // });
 
-module.exports = app.listen(3000);
+module.exports = app.listen(port, function(){
+  console.log("Listening on: " + port);
+});
 
 
