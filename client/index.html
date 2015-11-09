@@ -5,17 +5,19 @@
     <meta charset="utf-8" />
     <title>SnapCard</title>
     <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
-    <script src= "http://code.jquery.com/jquery-2.1.4.min.js"></script> 
+    <script src= "http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="factories/fileReader.js"></script>
+    <script src="controllers/app.js"></script>
+    <script src="app.js"></script>
   </head>
   <body>
     <div class="container">
       <h1>SnapCard</h1>
 
       <div ng-view></div>
-      <script src="lib/angular/angular.js"></script>
-      <script src="lib/angular-route/angular-route.js"></script>
-      <script src="controllers/app.js"></script>
-      <script src="app.js"></script>
+      
     </div>
 
     <form action="/your/server/endpoint" method="post">
